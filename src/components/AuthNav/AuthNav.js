@@ -5,16 +5,16 @@ import s from './AuthNav.module.scss';
 const AuthNav = () => (
   <div>
     <NavLink
-      to="/signup"
       exact
+      to="/signup"
       className={s.link}
       activeClassName={s.activeLink}
     >
       SignUp
     </NavLink>
     <NavLink
-      to="/login"
       exact
+      to="/login"
       className={s.link}
       activeClassName={s.activeLink}
     >

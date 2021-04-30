@@ -6,8 +6,6 @@ import AuthNav from '../AuthNav';
 import { getIsAuthenticated } from '../../redux/auth';
 import s from './AppBar.module.scss';
 
-//done
-
 function AppBar() {
   const isLoggedIn = useSelector(getIsAuthenticated);
   return (

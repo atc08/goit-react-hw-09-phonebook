@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ContactList.module.scss';
 import PropTypes from 'prop-types';
 
-const ContactListItem = ({ id, name, number, ondeleteContact }) => {
+const ContactListItem = ({ id, name, number, onDeleteContact }) => {
   return (
     <>
       <p className={s.ContactListItemText}>
@@ -10,7 +10,7 @@ const ContactListItem = ({ id, name, number, ondeleteContact }) => {
       </p>
       <button
         type="button"
-        onClick={() => ondeleteContact(id)}
+        onClick={() => onDeleteContact(id)}
         className={s.ContactListItemButton}
       >
         Delete

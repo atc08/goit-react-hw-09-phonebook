@@ -17,7 +17,7 @@ const getFilteredContact = createSelector(
   },
 );
 
-export { getLoading, getFilter, getFilteredContact };
+export { getLoading, getAllContacts, getFilter, getFilteredContact };
 
 // const getFilteredContact = state => {
 //   const contacts = getAllContacts(state);

@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Container from './components/Container';
 import AppBar from './components/AppBar';
 import { getCurrentUser } from './redux/auth';
@@ -35,24 +35,18 @@ function App() {
 
       <Suspense fallback={<h2>Loading...</h2>}>
         <Switch>
-          <Route exact path="/" component={HomeView} />
-          <PublicRoute
-            path="/signup"
-            redirectTo="/contacts"
-            restricted
-            component={SignUpView}
-          />
-          <PublicRoute
-            path="/login"
-            redirectTo="/contacts"
-            restricted
-            component={LoginView}
-          />
-          <PrivateRoute
-            path="/contacts"
-            redirectTo="/login"
-            component={ContactsView}
-          />
+          <PublicRoute exact path="/">
+            <HomeView />
+          </PublicRoute>
+          <PublicRoute path="/signup" redirectTo="/contacts" restricted>
+            <SignUpView />
+          </PublicRoute>
+          <PublicRoute path="/login" redirectTo="/contacts" restricted>
+            <LoginView />
+          </PublicRoute>
+          <PrivateRoute path="/contacts" redirectTo="/login">
+            <ContactsView />
+          </PrivateRoute>
         </Switch>
       </Suspense>
     </Container>

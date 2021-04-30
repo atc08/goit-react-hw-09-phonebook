@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserName, logOut } from '../../redux/auth';
 import s from './UserMenu.module.scss';
 
-//done
-
 function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(getUserName);

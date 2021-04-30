@@ -4,8 +4,6 @@ import { changeFilter, getFilter } from '../../redux/phonebook';
 import PropTypes from 'prop-types';
 import s from './Filter.module.scss';
 
-//done
-
 function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);

@@ -4,20 +4,19 @@ import { useSelector } from 'react-redux';
 import s from './Navigation.module.scss';
 import { getIsAuthenticated } from '../../redux/auth';
 
-//done
-
 function Navigation() {
   const isLoggedIn = useSelector(getIsAuthenticated);
+
   return (
     <nav>
-      <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
+      <NavLink exact to="/" className={s.link} activeClassName={s.activeLink}>
         Main
       </NavLink>
 
       {isLoggedIn && (
         <NavLink
-          to="/contacts"
           exact
+          to="/contacts"
           className={s.link}
           activeClassName={s.activeLink}
         >

@@ -1,10 +1,18 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import ContactListItem from './ContactListItem';
+import { deleteContact, getFilteredContact } from '../../redux/phonebook';
 import s from './ContactList.module.scss';
 import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts, ondeleteContact }) => {
+function ContactList() {
+  const contacts = useSelector(getFilteredContact);
+
+  const dispatch = useDispatch();
+  const onDeleteContact = id => dispatch(deleteContact(id));
+
   if (contacts.length === 0) return null;
+
   return (
     <ul className={s.ContactList}>
       {contacts.map(({ id, name, number }) => (
@@ -13,13 +21,13 @@ const ContactList = ({ contacts, ondeleteContact }) => {
             id={id}
             name={name}
             number={number}
-            ondeleteContact={ondeleteContact}
+            onDeleteContact={onDeleteContact}
           />
         </li>
       ))}
     </ul>
   );
-};
+}
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
